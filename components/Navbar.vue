@@ -1,6 +1,8 @@
 <template>
   <div class="container mt-3">
-    <div class="flex w-full justify-between mb-2 text-primary font-semibold text-sm">
+    <div
+      class="flex w-full justify-between mb-2 text-primary font-semibold text-sm"
+    >
       <div class="flex gap-7">
         <a
           href="#"
@@ -21,16 +23,87 @@
     :class="isScrolled ? 'backdrop-blur-lg bg-white/30' : 'bg-white'"
   >
     <div class="container">
-      <div class="flex  w-full items-center justify-between gap-4">
-        <div class="flex gap-[29px] group" @click="dropdownClick = !dropdownClick">
-          <img src="/MainLogo.svg" alt="Logo" />
+      <div class="flex w-full items-center justify-between gap-4">
+        <div class="flex gap-[29px]">
+          <img src="/MainLogo.svg" class="cursor-pointer" alt="Logo" />
           <div
+            @click="dropdownClick = !dropdownClick"
             class="flex px-[27px] gap-[9px] cursor-pointer items-center rounded-full bg-primary py-[14px]"
           >
             <img src="/catalog.svg" alt="category" />
             <p class="text-white font-semibold">Каталог</p>
           </div>
-          <Dropdown />
+          <!-- --------- -->
+          <div
+            class="absolute md:top-[67px] top-[58px] left-0 z-40 duration-300"
+            :class="
+              dropdownClick ? 'w-full h-full scale-100' : 'h-0 w-0 scale-0 '
+            "
+          >
+            <div class="md:container bg-transparent h-[400px]">
+              <div
+                class="grid rounded-md md:grid-cols-5 grid-cols-2 overflow-auto bg-white"
+              >
+                <!-- Left side with category names -->
+                <div
+                  class="bg-white w-full h-[400px] overflow-auto bg-primary/25"
+                >
+                  <div class="w-full h-full py-1">
+                    <div
+                      v-for="(category, index) in categories"
+                      :key="index"
+                      class="flex flex-col gap-5 w-full"
+                    >
+                      <p
+                        class="font-medium py-[10px] px-4 text-black cursor-pointer max-md:text-sm"
+                        @click.stop="selectCategory(index)"
+                        :class="{
+                          'text-primary w-full bg-white':
+                            selectedCategory === index,
+                        }"
+                      >
+                        {{ category.name }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right side with sub-categories and items -->
+                <div
+                  class="md:col-span-4 bg-white md:grid grid-cols-4 gap-5 overflow-auto h-[400px] px-[33px] py-[15px]"
+                >
+                  <div
+                    v-if="selectedCategory !== null"
+                    class="md:grid grid-cols-4 gap-5 col-span-4"
+                  >
+                    <div
+                      v-for="(type, typeIndex) in categories[selectedCategory]
+                        .type"
+                      :key="typeIndex"
+                      class="flex flex-col gap-5"
+                    >
+                      <p class="font-medium max-md:text-sm">
+                        {{ type }}
+                      </p>
+                      <div>
+                        <p
+                          class="text-lg font-normal text-[#666] max-md:text-sm"
+                          v-for="(data, dataIndex) in categories[
+                            selectedCategory
+                          ].typeOfData[typeIndex]"
+                          :key="dataIndex"
+                        >
+                          {{ data }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- --------- -->
+
+          <!-- <Dropdown /> -->
         </div>
         <div class="relative w-[45%]">
           <input
@@ -52,8 +125,9 @@
           <div class="flex flex-col items-center gap-[6px]">
             <img
               :src="item"
-              :class="index + 1 != image.length ? 'w-1/4' : 'w-1/3'"
-              alt="Logos"
+              class="cursor-pointer"
+              :class="index + 1 != image.length ? 'w-1/3' : 'w-1/2'"
+              alt="Logos "
             />
             <p class="text-[12px] font-semibold text-primary">
               {{ bottomSections[index] }}
@@ -66,9 +140,17 @@
 </template>
 
 <script setup>
+import { reactive, ref } from "vue";
+import categoriesData from "../JSON/data.json";
 
+const categories = reactive(categoriesData.categories);
+const selectedCategory = ref(0);
 
-const dropdownClick = ref(false)
+const selectCategory = (index) => {
+  selectedCategory.value = index;
+};
+
+const dropdownClick = ref(false);
 
 const sections = ref([
   "О компании",
