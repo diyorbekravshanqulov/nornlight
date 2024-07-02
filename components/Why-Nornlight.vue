@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-[102px]">
     <div class="flex justify-between mb-10 items-center">
-      <h4 class="font-bold text-[40px]">NORNLIGHT</h4>
+      <h4 class="font-bold text-[40px]">Почему NORNLIGHT?</h4>
       <div
         class="flex items-center py-[8px] cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
