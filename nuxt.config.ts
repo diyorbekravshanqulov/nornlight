@@ -1,7 +1,7 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-swiper"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-swiper", "@pinia/nuxt"],
   app: {
     head: {
       title: "Nornlight",
@@ -29,5 +29,5 @@ export default defineNuxtConfig({
       ],
     },
   },
-  plugins: ["~/plugins/scrollBehavior.global.js"],
+  plugins: [],
 });

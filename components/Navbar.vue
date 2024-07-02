@@ -22,14 +22,15 @@
   >
     <div class="container">
       <div class="flex  w-full items-center justify-between gap-4">
-        <div class="flex gap-[29px]">
+        <div class="flex gap-[29px] group" @click="dropdownClick = !dropdownClick">
           <img src="/MainLogo.svg" alt="Logo" />
           <div
-            class="flex px-[27px] gap-[9px] items-center rounded-full bg-primary py-[14px]"
+            class="flex px-[27px] gap-[9px] cursor-pointer items-center rounded-full bg-primary py-[14px]"
           >
             <img src="/catalog.svg" alt="category" />
             <p class="text-white font-semibold">Каталог</p>
           </div>
+          <Dropdown />
         </div>
         <div class="relative w-[45%]">
           <input
@@ -65,6 +66,10 @@
 </template>
 
 <script setup>
+
+
+const dropdownClick = ref(false)
+
 const sections = ref([
   "О компании",
   "Доставка и оплата",
