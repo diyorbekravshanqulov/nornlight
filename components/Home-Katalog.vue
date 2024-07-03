@@ -36,7 +36,6 @@
       <swiper
         spaceBetween="30"
         :centeredSlides="true"
-        :pagination="true"
         :loop="true"
         :autoplay="{
           delay: 2500,
@@ -47,7 +46,7 @@
       >
         <swiper-slide class="h-full w-full" v-for="(item, index) in candles" :key="index">
           <div
-            class="bg-second rounded-[20px] w-full h-[200px] flex-col flex items-center gap-4 py-4 justify-between"
+            class="bg-second rounded-[20px] w-full h-[300px] flex-col flex items-center gap-4 py-4 justify-between"
           >
             <!-- <div class="flex flex-col h-full justify-between"> -->
               <p class="text-primary font-medium text-[20px]">
@@ -66,9 +65,9 @@
         </swiper-slide>
       </swiper>
       <div
-        class="flex items-center py-[8px] cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
+        class="flex items-center py-[8px] mt-5 max-md:w-full cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
-        <p class="ml-12 font-medium text-primary">Весь каталог</p>
+        <p class="ml-12 font-medium max-md:ml-24 text-primary">Весь каталог</p>
         <p class="text-2xl font-medium mb-1 text-primary">&rarr;</p>
       </div>
     </div>

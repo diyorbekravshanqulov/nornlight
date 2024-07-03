@@ -1,8 +1,8 @@
 <template>
-  <div class="container md:hidden">
+  <div class="max-md:container">
     <div class="w-full md:flex justify-center">
-      <div class="bg-second mx-[5%] mt-8 rounded-[30px] md:rounded-[50px] md:w-[1714px]">
-        <div class="max-md:container">
+      <div class="bg-second md:mx-[5%] max-md:px-[5%] mt-8 rounded-[30px] md:rounded-[50px] md:w-[1714px]">
+        <div class="md:container">
           <swiper
             spaceBetween="30"
             :centeredSlides="true"
@@ -16,8 +16,8 @@
             class="mySwiper"
           >
             <swiper-slide v-for="(item, index) in 8" :key="index">
-              <div class="flex flex-col-reverse md:gap-[199px] md:mb-[47px]">
-                <h1 class="md:text-[64px] text-[28px] md:mt-[64px] mt-[25px] mb-12 font-bold md:leading-[75px]">
+              <div class="flex max-md:flex-col-reverse md:gap-[199px] md:mb-[47px]">
+                <h1 class="md:text-[64px] text-[28px] md:mt-[64px] mt-[25px] max-md:mb-12 font-bold md:leading-[75px]">
                   Скидка 15% на все подвесные светильники
                   <span
                     class="bg-primary inline-block rounded-full text-white px-[27px]"

@@ -1,10 +1,10 @@
 <template>
-  <div class="container py-[71px]">
-    <div class="flex w-full items-center mb-[71px] justify-between">
-      <h4 class="text-primary font-bold text-[40px]">
+  <div class="container py-[71px] max-md:pt-[60px]">
+    <div class="flex w-full items-center md:mb-[71px] mb-[28] justify-between">
+      <h4 class="text-primary font-bold text-[40px] max-md:text-[28px]">
         Только проверенные бренды
       </h4>
-      <div class="flex gap-[10px] items-center">
+      <div class="flex gap-[10px] max-md:hidden items-center">
         <button
           class="text-2xl h-[26px] w-[39px] flex items-center justify-center border border-primary rounded-full"
           @click="decreaseSpeed"
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div
-      class="carousel-wrapper"
+      class="carousel-wrapper "
       :style="{ '--ani-speed': `${animationSpeed}s` }"
     >
       <div class="carousel">

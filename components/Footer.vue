@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-second py-[79px]">
+  <div class="bg-second py-[79px] max-md:py-10">
     <div class="container">
-      <div class="flex w-full justify-between">
-        <div class="flex flex-col w-1/4 gap-[35px]">
-          <img src="/MainLogo.svg" @click="router.push('/')" class="w-3/4 cursor-pointer" alt="logo" />
+      <div class="flex max-md:flex-col max-md:gap-5 w-full justify-between">
+        <div class="flex flex-col md:w-1/4 gap-[35px]">
+          <img src="/MainLogo.svg" @click="router.push('/')" class="w-3/4 max-md:w-1/2 cursor-pointer" alt="logo" />
           <p class="text-primary text-2xl font-semibold">8 (800) 890-46-56</p>
-          <img src="/card.png" class="w-3/4 cursor-pointer" alt="card" />
+          <img src="/card.png" class="w-3/4 max-md:w-1/2 cursor-pointer" alt="card" />
           <p class="font-semibold underline opacity-50 cursor-pointer">
             Политика конфидециальности
           </p>
