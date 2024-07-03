@@ -69,7 +69,6 @@
 </template>
 
 <script setup>
-
 const dropdownClick = ref(false);
 
 const sections = ref([
