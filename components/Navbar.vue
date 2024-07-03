@@ -20,7 +20,7 @@
   </div>
   <div
     class="sticky top-0 left-0 w-full py-3 z-30"
-    :class="isScrolled ? 'backdrop-blur-lg bg-white/30' : 'bg-white'"
+    :class="isScrolled ? 'backdrop-blur-lg bg-gradient-to-r' : 'bg-white'"
   >
     <div class="container">
       <div class="flex w-full items-center justify-between gap-4">

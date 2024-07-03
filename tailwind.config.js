@@ -24,6 +24,10 @@ export default {
       fontFamily: {
         sans: ["Manrope", "sans-serif"],
       },
+      backgroundImage: {
+        "gradient-to-r":
+          "linear-gradient(90deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, .3) 10%, rgba(255, 255, 255, .3) 90%, rgba(0, 0, 0, .1) 100%)",
+      },
     },
   },
   plugins: [],
