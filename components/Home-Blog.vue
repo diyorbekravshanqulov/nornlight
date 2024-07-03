@@ -12,16 +12,16 @@
     <div class="grid grid-cols-3 gap-5">
       <div
         class="w-full h-full flex flex-col-reverse gap-[29px] justify-between border-b border-primary/10 pb-8"
-        v-for="(item, index) in candles"
+        v-for="(item, index) in products"
         :key="index"
       >
         <div class="flex flex-col gap-6 h-full justify-between">
-          <div class="flex justify-between w-full">
-            <p class="text-primary font-medium text-[20px]">
-              {{ datas[index].title }}
+          <div class="flex justify-between gap-5 w-full">
+            <p class="text-primary line-clamp-2 font-medium text-[20px]">
+              {{ item.title }}
             </p>
             <span
-              class="hover:rotate-45 mr-4 cursor-pointer duration-300 font-medium text-3xl"
+              class="hover:rotate-45 mr-5 cursor-pointer duration-300 font-medium text-3xl"
               ><svg
                 width="18"
                 height="18"
@@ -38,30 +38,35 @@
             </span>
           </div>
           <p class="text-primary font-medium text-sm">
-            {{ datas[index].date }}
+            {{ item.date }}
           </p>
         </div>
-        <img class="w-full" :src="item" alt="" />
+        <img class="w-full" :src="item.image" alt="" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+import axios from "axios";
+
+const products = ref([]);
+
 const candles = ref(["/house1.png", "/house2.png", "/house3.png"]);
 
-const datas = ref([
-  {
-    title: "Как правильно освещать дом снаружи?",
-    date: "01.01.2024",
-  },
-  {
-    title: "Как правильно освещать дом снаружи?",
-    date: "01.01.2024",
-  },
-  {
-    title: "Как правильно освещать дом снаружи?",
-    date: "01.01.2024",
-  },
-]);
+onMounted(async () => {
+  try {
+    const response = await axios.get(
+      `https://667d5f3b297972455f64d6c6.mockapi.io/products/blogs`
+    );
+    products.value = response.data.map((product) => ({
+      ...product,
+      liked: false,
+      shopped: false,
+    }));
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+});
 </script>

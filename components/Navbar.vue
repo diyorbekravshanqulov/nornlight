@@ -36,7 +36,7 @@
         </div>
         <div class="relative w-[45%]">
           <input
-            class="font-semibold outline-none pl-[27px] pr-12 h-full py-[14px] placeholder:text-primary border border-primary rounded-full w-full"
+            class="font-semibold bg-white/50 outline-none pl-[27px] pr-12 h-full py-[14px] placeholder:text-primary border border-primary rounded-full w-full"
             type="text"
             placeholder="Поиск по товарам"
           />

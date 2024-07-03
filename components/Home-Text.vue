@@ -1,6 +1,6 @@
 <template>
   <div class="container my-[100px]">
-    <div class="flex w-full gap-[300px]">
+    <div class="flex w-full gap-[270px]">
       <h4 class="text-primary text-[40px] font-bold">
         Производство светильников
       </h4>
