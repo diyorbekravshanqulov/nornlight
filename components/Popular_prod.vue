@@ -18,7 +18,7 @@
         <div class="relative">
           <img :src="item.image" alt="Product Image" />
           <img
-            class="z-10 absolute top-0 right-0 translate-y-1/2 -translate-x-1/2 cursor-pointer"
+            class="z-10 absolute top-0 right-0 translate-y-3/4 -translate-x-3/4 cursor-pointer"
             @click="toggleLike(item.id)"
             :src="item.liked ? '/like2.svg' : '/like.svg'"
             alt="Like Button"

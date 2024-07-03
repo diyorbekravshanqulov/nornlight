@@ -82,7 +82,7 @@ const sections = ref([
 ]);
 
 const bottomSections = ref(["Избранное", "Сравнение", "Корзина"]);
-const image = ref(["/like.svg", "/compare.svg", "/like5.svg"]);
+const image = ref(["/like5.svg", "/compare.svg", "/cart.svg"]);
 
 const isScrolled = ref(false);
 
