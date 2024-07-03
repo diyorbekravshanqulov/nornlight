@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-[71px] max-md:pt-[60px]">
+  <div class="container md:py-[71px] max-md:pt-[60px]">
     <div class="flex w-full items-center md:mb-[71px] mb-[28] justify-between">
       <h4 class="text-primary font-bold text-[40px] max-md:text-[28px]">
         Только проверенные бренды
