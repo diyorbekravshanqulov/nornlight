@@ -47,7 +47,7 @@
       >
         <swiper-slide class="h-full w-full" v-for="(item, index) in candles" :key="index">
           <div
-            class="bg-second rounded-[20px] w-full h-[500px] flex-col flex items-center gap-4 py-4 justify-between"
+            class="bg-second rounded-[20px] w-full h-[200px] flex-col flex items-center gap-4 py-4 justify-between"
           >
             <!-- <div class="flex flex-col h-full justify-between"> -->
               <p class="text-primary font-medium text-[20px]">
