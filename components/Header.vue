@@ -1,33 +1,34 @@
 <template>
-  <div class="w-full flex justify-center">
-    <div class="bg-second mx-[5%] mt-8 rounded-[50px]  w-[1714px]">
-      <div class="container ">
-        <swiper
-          spaceBetween="30"
-          :centeredSlides="true"
-          :pagination="true"
-          :loop="true"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false,
-          }"
-          :modules="modules"
-          class="mySwiper"
-        >
-          
-          <swiper-slide v-for="(item, index) in 8" :key="index">
-            <div class="flex gap-[199px] mb-[47px]">
-              <h1 class="text-[64px] mt-[64px] font-bold leading-[75px]">
-                Скидка 15% на все подвесные светильники
-                <span
-                  class="bg-primary inline-block rounded-full text-white px-[27px]"
-                  >до 5 февраля</span
-                >
-              </h1>
-              <img src="/header.png" class="w-[35%] mr-[66px]" alt="Candle" />
-            </div>
-          </swiper-slide>
-        </swiper>
+  <div class="container md:hidden">
+    <div class="w-full md:flex justify-center">
+      <div class="bg-second mx-[5%] mt-8 rounded-[30px] md:rounded-[50px] md:w-[1714px]">
+        <div class="max-md:container">
+          <swiper
+            spaceBetween="30"
+            :centeredSlides="true"
+            :pagination="true"
+            :loop="true"
+            :autoplay="{
+              delay: 2500,
+              disableOnInteraction: false,
+            }"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <swiper-slide v-for="(item, index) in 8" :key="index">
+              <div class="flex flex-col-reverse md:gap-[199px] md:mb-[47px]">
+                <h1 class="md:text-[64px] text-[28px] md:mt-[64px] mt-[25px] mb-12 font-bold md:leading-[75px]">
+                  Скидка 15% на все подвесные светильники
+                  <span
+                    class="bg-primary inline-block rounded-full text-white px-[27px]"
+                    >до 5 февраля</span
+                  >
+                </h1>
+                <img src="/header.png" class="w-[35%] max-md:w-full md:mr-[66px]" alt="Candle" />
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
     </div>
   </div>
@@ -43,10 +44,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules"; // Import Swi
 const modules = [Autoplay, Pagination, Navigation];
 </script>
 <style scoped>
-
 /* Swiper styles */
 .swiper {
-
   position: relative;
   display: flex;
   justify-content: center;
@@ -68,5 +67,4 @@ const modules = [Autoplay, Pagination, Navigation];
   right: 20px; /* Adjust as needed */
   bottom: 20px; /* Adjust as needed */
 }
-
 </style>

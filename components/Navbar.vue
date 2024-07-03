@@ -1,7 +1,7 @@
 <template>
   <div class="container pt-3">
     <div
-      class="flex w-full justify-between mb-2 text-primary font-semibold text-sm"
+      class="max-md:hidden flex w-full justify-between mb-2 text-primary font-semibold text-sm"
     >
       <div class="flex gap-7">
         <a
