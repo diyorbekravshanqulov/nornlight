@@ -25,12 +25,12 @@
           />
         </div>
         <div class="flex flex-col justify-between h-full gap-6 w-full">
-          <p class="text-primary font-medium leading-[22px] text-xl">
+          <p class="text-primary font-medium line-clamp-2 leading-[22px] text-xl">
             {{ item.title }}
           </p>
           <div class="div">
             <p class="font-bold text-[#9F9F9F] line-through text-[12px]">
-              {{ item.discountPercentage }}₽
+              {{ item.sale }}₽
             </p>
             <div class="flex w-full justify-between">
               <p class="text-primary mt-[6px] font-bold text-xl">
@@ -40,7 +40,9 @@
                 @click="toggleShopped(item.id)"
                 class="py-2 p-5 cursor-pointer rounded-full w-[30%]"
                 :src="item.shopped ? '/cart3.svg' : '/cart2.svg'"
-                :class="item.shopped ? 'bg-white border border-primary' : 'bg-primary'"
+                :class="
+                  item.shopped ? 'bg-white border border-primary' : 'bg-primary'
+                "
                 alt="Cart Button"
               />
             </div>
@@ -50,23 +52,22 @@
     </div>
   </div>
 </template>
+
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import { ref, onMounted } from "vue";
+import axios from "axios";
 
 const products = ref([]);
-const limit = ref(8);
-const skip = ref(0);
 
 const toggleLike = (id) => {
-  const product = products.value.find(item => item.id === id);
+  const product = products.value.find((item) => item.id === id);
   if (product) {
     product.liked = !product.liked;
   }
 };
 
 const toggleShopped = (id) => {
-  const product = products.value.find(item => item.id === id);
+  const product = products.value.find((item) => item.id === id);
   if (product) {
     product.shopped = !product.shopped;
   }
@@ -75,9 +76,9 @@ const toggleShopped = (id) => {
 onMounted(async () => {
   try {
     const response = await axios.get(
-      `https://dummyjson.com/products?limit=${limit.value}&skip=${skip.value}`
+      `https://667d5f3b297972455f64d6c6.mockapi.io/products/products`
     );
-    products.value = response.data.products.map((product) => ({
+    products.value = response.data.map((product) => ({
       ...product,
       liked: false,
       shopped: false,

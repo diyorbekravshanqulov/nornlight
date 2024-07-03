@@ -34,7 +34,7 @@
             <p class="text-white font-semibold">Каталог</p>
           </div>
           <!-- --------- -->
-          <div
+          <!-- <div
             class="absolute md:top-[67px] top-[58px] left-0 z-40 duration-300"
             :class="
               dropdownClick ? 'w-full h-full scale-100' : 'h-0 w-0 scale-0 '
@@ -44,7 +44,6 @@
               <div
                 class="grid rounded-md md:grid-cols-5 grid-cols-2 overflow-auto bg-white"
               >
-                <!-- Left side with category names -->
                 <div
                   class="bg-white w-full h-[400px] overflow-auto bg-primary/25"
                 >
@@ -67,7 +66,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- Right side with sub-categories and items -->
                 <div
                   class="md:col-span-4 bg-white md:grid grid-cols-4 gap-5 overflow-auto h-[400px] px-[33px] py-[15px]"
                 >
@@ -100,7 +98,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- --------- -->
 
           <!-- <Dropdown /> -->

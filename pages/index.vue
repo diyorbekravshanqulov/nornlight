@@ -7,6 +7,7 @@
     <HomeCarusel />
     <HomeBlog />
     <HomeText />
+    <Test />
   </div>
 </template>
 
