@@ -32,13 +32,13 @@
             <p class="font-bold text-[#9F9F9F] line-through text-[12px]">
               {{ item.sale }}₽
             </p>
-            <div class="flex w-full justify-between">
+            <div class="flex w-full justify-between items-center">
               <p class="text-primary mt-[6px] font-bold text-xl">
                 {{ item.price }}₽
               </p>
               <img
                 @click="toggleShopped(item.id)"
-                class="py-2 p-5 cursor-pointer rounded-full w-[30%]"
+                class="py-2 p-5 cursor-pointer rounded-full w-[23%]"
                 :src="item.shopped ? '/cart3.svg' : '/cart2.svg'"
                 :class="
                   item.shopped ? 'bg-white border border-primary' : 'bg-primary'
