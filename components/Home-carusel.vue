@@ -5,16 +5,24 @@
         Только проверенные бренды
       </h4>
       <div class="flex gap-[10px] items-center">
-        <button class="text-2xl h-[26px] w-[39px] flex items-center justify-center  opacity-50 border border-primary rounded-full">
+        <button
+          class="text-2xl h-[26px] w-[39px] flex items-center justify-center border border-primary rounded-full"
+          @click="decreaseSpeed"
+        >
           <span class="mb-1.5">&#8592;</span>
         </button>
-        <button class="text-2xl h-[26px] w-[39px] flex items-center justify-center border border-primary rounded-full">
+        <button
+          class="text-2xl h-[26px] w-[39px] flex items-center justify-center border border-primary rounded-full"
+          @click="increaseSpeed"
+        >
           <span class="mb-1.5">&rarr;</span>
         </button>
-
       </div>
     </div>
-    <div class="carousel-wrapper">
+    <div
+      class="carousel-wrapper"
+      :style="{ '--ani-speed': `${animationSpeed}s` }"
+    >
       <div class="carousel">
         <!-- Render each logo item -->
         <div class="item" v-for="(item, index) in logos" :key="index">
@@ -34,6 +42,8 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 const logos = [
   { src: "/brand1.png", alt: "Brand 1" },
   { src: "/brand2.png", alt: "Brand 2" },
@@ -45,6 +55,16 @@ const logos = [
   { src: "/brand2.png", alt: "Brand 2" },
   { src: "/brand3.png", alt: "Brand 3" },
 ];
+
+const animationSpeed = ref(30); // Initial speed in seconds
+
+const increaseSpeed = () => {
+  animationSpeed.value = Math.max(10, animationSpeed.value - 5); // Decrease speed (increase animation speed)
+};
+
+const decreaseSpeed = () => {
+  animationSpeed.value = Math.min(60, animationSpeed.value + 5); // Increase speed (decrease animation speed)
+};
 </script>
 
 <style scoped>
@@ -55,7 +75,6 @@ const logos = [
 .carousel-wrapper {
   --width: 300px; /* Adjust as needed */
   --num-items: 9; /* Number of items to show */
-  --ani-speed: 30s; /* Animation speed */
 
   width: 100%; /* Full width */
   overflow: hidden;
