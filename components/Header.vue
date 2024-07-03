@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex justify-center">
-    <div class="bg-second rounded-[50px] mt-8 w-[1714px]">
+    <div class="bg-second mx-[5%]  rounded-[50px] mt-8 w-[1714px]">
       <div class="container">
         <swiper
           spaceBetween="30"
