@@ -33,75 +33,6 @@
             <img src="/catalog.svg" alt="category" />
             <p class="text-white font-semibold">Каталог</p>
           </div>
-          <!-- --------- -->
-          <!-- <div
-            class="absolute md:top-[67px] top-[58px] left-0 z-40 duration-300"
-            :class="
-              dropdownClick ? 'w-full h-full scale-100' : 'h-0 w-0 scale-0 '
-            "
-          >
-            <div class="md:container bg-transparent h-[400px]">
-              <div
-                class="grid rounded-md md:grid-cols-5 grid-cols-2 overflow-auto bg-white"
-              >
-                <div
-                  class="bg-white w-full h-[400px] overflow-auto bg-primary/25"
-                >
-                  <div class="w-full h-full py-1">
-                    <div
-                      v-for="(category, index) in categories"
-                      :key="index"
-                      class="flex flex-col gap-5 w-full"
-                    >
-                      <p
-                        class="font-medium py-[10px] px-4 text-black cursor-pointer max-md:text-sm"
-                        @click.stop="selectCategory(index)"
-                        :class="{
-                          'text-primary w-full bg-white':
-                            selectedCategory === index,
-                        }"
-                      >
-                        {{ category.name }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="md:col-span-4 bg-white md:grid grid-cols-4 gap-5 overflow-auto h-[400px] px-[33px] py-[15px]"
-                >
-                  <div
-                    v-if="selectedCategory !== null"
-                    class="md:grid grid-cols-4 gap-5 col-span-4"
-                  >
-                    <div
-                      v-for="(type, typeIndex) in categories[selectedCategory]
-                        .type"
-                      :key="typeIndex"
-                      class="flex flex-col gap-5"
-                    >
-                      <p class="font-medium max-md:text-sm">
-                        {{ type }}
-                      </p>
-                      <div>
-                        <p
-                          class="text-lg font-normal text-[#666] max-md:text-sm"
-                          v-for="(data, dataIndex) in categories[
-                            selectedCategory
-                          ].typeOfData[typeIndex]"
-                          :key="dataIndex"
-                        >
-                          {{ data }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-          <!-- --------- -->
-
-          <!-- <Dropdown /> -->
         </div>
         <div class="relative w-[45%]">
           <input
@@ -138,15 +69,6 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
-import categoriesData from "../JSON/data.json";
-
-const categories = reactive(categoriesData.categories);
-const selectedCategory = ref(0);
-
-const selectCategory = (index) => {
-  selectedCategory.value = index;
-};
 
 const dropdownClick = ref(false);
 
@@ -160,7 +82,7 @@ const sections = ref([
 ]);
 
 const bottomSections = ref(["Избранное", "Сравнение", "Корзина"]);
-const image = ref(["/like.svg", "/compare.svg", "/cart.svg"]);
+const image = ref(["/like.svg", "/compare.svg", "/like5.svg"]);
 
 const isScrolled = ref(false);
 

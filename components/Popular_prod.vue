@@ -11,20 +11,20 @@
     </div>
     <div class="grid grid-cols-4 gap-5">
       <div
-        class="p-[27px] pt-[11px] w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col"
+        class=" w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col"
         v-for="(item, index) in products"
         :key="index"
       >
         <div class="relative">
-          <img src="/canles.png" alt="Product Image" />
+          <img :src="item.image" alt="Product Image" />
           <img
-            class="z-10 absolute top-0 right-0 translate-y-1/2 cursor-pointer"
+            class="z-10 absolute top-0 right-0 translate-y-1/2 -translate-x-1/2 cursor-pointer"
             @click="toggleLike(item.id)"
             :src="item.liked ? '/like2.svg' : '/like.svg'"
             alt="Like Button"
           />
         </div>
-        <div class="flex flex-col justify-between h-full gap-6 w-full">
+        <div class="p-[27px] pt-[11px] flex flex-col justify-between h-full gap-6 w-full">
           <p class="text-primary font-medium line-clamp-2 leading-[22px] text-xl">
             {{ item.title }}
           </p>
