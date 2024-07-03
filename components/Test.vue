@@ -9,8 +9,6 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 const products = ref([]);
-const limit = ref(8);
-const skip = ref(0);
 
 onMounted(async () => {
   try {

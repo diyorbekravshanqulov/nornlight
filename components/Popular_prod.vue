@@ -11,12 +11,12 @@
     </div>
     <div class="grid grid-cols-4 gap-5">
       <div
-        class="p-[27px] pt-[11px] w-full h-full border border-[#D9D9D9] flex gap-4 flex-col"
+        class="p-[27px] pt-[11px] w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col"
         v-for="(item, index) in products"
         :key="index"
       >
         <div class="relative">
-          <img :src="item.thumbnail" alt="Product Image" />
+          <img src="/canles.png" alt="Product Image" />
           <img
             class="z-10 absolute top-0 right-0 translate-y-1/2 cursor-pointer"
             @click="toggleLike(item.id)"

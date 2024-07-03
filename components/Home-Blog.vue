@@ -21,7 +21,7 @@
               {{ datas[index].title }}
             </p>
             <span
-              class="hover:rotate-45 hover:mr-4 cursor-pointer duration-300 font-medium text-3xl"
+              class="hover:rotate-45 mr-5 cursor-pointer duration-300 font-medium text-3xl"
               ><svg
                 width="18"
                 height="18"
