@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex justify-center">
-    <div class="bg-second mx-[5%]  rounded-[50px] mt-8 w-[1714px]">
-      <div class="container">
+    <div class="bg-second mx-[5%] mt-8 rounded-[50px]  w-[1714px]">
+      <div class="container ">
         <swiper
           spaceBetween="30"
           :centeredSlides="true"
@@ -17,14 +17,14 @@
           
           <swiper-slide v-for="(item, index) in 8" :key="index">
             <div class="flex gap-[199px] mb-[47px]">
-              <h1 class="text-5xl mt-[52px] font-bold leading-[75px]">
+              <h1 class="text-[64px] mt-[64px] font-bold leading-[75px]">
                 Скидка 15% на все подвесные светильники
                 <span
                   class="bg-primary inline-block rounded-full text-white px-[27px]"
                   >до 5 февраля</span
                 >
               </h1>
-              <img src="/header.png" class="w-1/3 mr-[66px]" alt="Candle" />
+              <img src="/header.png" class="w-[35%] mr-[66px]" alt="Candle" />
             </div>
           </swiper-slide>
         </swiper>
