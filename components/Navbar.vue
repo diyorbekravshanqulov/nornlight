@@ -14,7 +14,7 @@
       </div>
       <div class="flex gap-6">
         <p class="opacity-100">8 (800) 890-46-56</p>
-        <a href="#" class="opacity-50">Заказать звонок</a>
+        <a href="#" class="opacity-50" @click="modalClick = !modalClick">Заказать звонок</a>
       </div>
     </div>
   </div>
@@ -36,12 +36,17 @@
               alt="Logo"
             />
             <img
+              src="/MainLogo.svg"
+              class="cursor-pointer max-md:hidden"
+              alt="Logo"
+            />
+            <img
               :class="{
                 hidden: toggle,
                 block: !toggle,
               }"
               src="/MainLogo.svg"
-              class="cursor-pointer max-md:w-[75%]"
+              class="cursor-pointer md:hidden max-md:w-[75%]"
               alt="Logo"
             />
 
@@ -144,7 +149,7 @@
       </div>
       <div class="flex flex-col gap-4 mt-8 justify-center w-full">
         <p class="text-center">8 (800) 890-46-56</p>
-        <p class="text-center">Заказать звонок</p>
+        <p class="text-center" @click="modalClick = !modalClick">Заказать звонок</p>
       </div>
     </div>
     <div
@@ -159,7 +164,6 @@
 import { ref } from "vue";
 const toggle = ref(false);
 
-const dropdownClick = ref(false);
 
 const sections = ref([
   "О компании",

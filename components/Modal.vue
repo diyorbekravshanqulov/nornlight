@@ -1,11 +1,11 @@
 <template>
-  <div @click="toggle = !toggle" v-show="toggle">
+  <div @click="modalClick = !modalClick" v-show="modalClick">
     <div class="fixed z-40 h-screen w-screen bg-primary/50"></div>
     <form
       action=""
       class="p-[40px] rounded-[50px] bg-white absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
     >
-      <p @click.stop="toggle = !toggle"  class="flex justify-end items-center cursor-pointer">
+      <p @click.stop="modalClick = !modalClick"  class="flex justify-end items-center cursor-pointer">
         <svg
           width="18"
           height="18"
@@ -47,6 +47,6 @@
 </template>
 
 <script setup>
-const toggle = ref(false);
+const modalClick = ref(false);
 
 </script>
