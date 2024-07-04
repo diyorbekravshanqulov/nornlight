@@ -107,28 +107,40 @@
       </div>
     </div>
   </div>
+
   <div
-    @click="toggle = !toggle"
-    :class="{ 'scale-0 h-0': !toggle, 'scale-100 h-screen': toggle }"
-    class="fixed z-20  top-0 left-0 duration-300 w-screen bg-primary/50"
-  ></div>
-  <div
-    class="md:hidden z-50 top-[100px] left-0 fixed w-full transition-all duration-300"
+    class="md:hidden z-50  top-[100px] left-0 fixed w-full transition-all duration-300"
     :class="{ 'scale-0 h-0': !toggle, 'scale-100 h-full': toggle }"
   >
-    <div>
+    <div class="container bg-white pb-8">
       <a
         href="#"
         v-for="(item, index) in sections"
         :key="index"
-        class="block pt-8 text-center mx-auto border-[0.5px] w-full text-primary text-sm border-b-primary/50 bg-white transition-all duration-300"
+        class="block pt-8 text-center mx-auto border-b w-full text-primary text-sm border-b-primary/50  transition-all duration-300"
         >{{ item }}</a
       >
+      <div
+        class="flex justify-center  w-full gap-[9px] cursor-pointer items-center rounded-full bg-primary mt-6 py-[14px]"
+      >
+        <img src="/catalog.svg" alt="category" />
+        <p class="text-white font-semibold">Каталог</p>
+      </div>
+      <div class="flex flex-col gap-4 mt-8 justify-center w-full">
+        <p class="text-center">8 (800) 890-46-56</p>
+        <p class="text-center">Заказать звонок</p>
+      </div>
     </div>
+    <div
+      @click.stop="toggle = !toggle"
+      :class="{ hidden: !toggle, block: toggle }"
+      class="h-screen duration-300 w-screen bg-primary/50"
+    ></div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 const toggle = ref(false);
 
 const dropdownClick = ref(false);
