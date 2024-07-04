@@ -1,0 +1,35 @@
+<template>
+  <div class="container mt-4 max-md:mb-10">
+    <div class="grid md:grid-cols-2 md:gap-[10%] gap-5">
+      <h3
+        class="leading-[70px] text-primary text-[64px] max-md:text-[28px] font-bold"
+      >
+        Гарантии
+      </h3>
+      <div class="mb-10">
+        <h4 class="text-2xl font-semibold text-primary">8 (800) 890-46-56</h4>
+        <p class="text-primary">Пн-Пт: 10:00 до 19:00</p>
+        <p class="text-primary">Сб-Вс: заказ через корзину</p>
+        <p class="text-primary">Телефоны: </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center w-full">
+    <div
+      class="md:my-[100px] mt-5  max-md:mb-10 md:w-[1800px] max-md:h-[326px] h-[672px] md:mx-[10px]"
+    >
+      <iframe
+        class="rounded-[15px]"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4055.2795304930755!2d69.35267014740285!3d41.298414303459616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1720107471065!5m2!1sru!2s"
+        width="100%"
+        height="100%"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</template>
+
+<script setup></script>

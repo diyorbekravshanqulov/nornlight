@@ -12,7 +12,7 @@
     <div class="grid md:grid-cols-3 gap-5 max-md:hidden">
       <div
         class="w-full h-full flex flex-col-reverse gap-[29px] justify-between border-b border-primary/10 pb-8"
-        v-for="(item, index) in products"
+        v-for="(item, index) in limitedProducts"
         :key="index"
       >
         <div class="flex flex-col gap-6 h-full justify-between">
@@ -64,7 +64,7 @@
           v-for="(item, index) in products"
           :key="index"
         >
-          <div class="grid md:grid-cols-3 gap-5 ">
+          <div class="grid md:grid-cols-3 gap-5">
             <div
               class="w-full h-full flex flex-col-reverse gap-[29px] justify-between border-b border-primary/10 pb-8"
             >
@@ -124,6 +124,9 @@ import axios from "axios";
 const products = ref([]);
 
 // const candles = ref(["/house1.png", "/house2.png", "/house3.png"]);
+const limitedProducts = computed(() => {
+  return products.value.slice(0, 3);
+});
 
 onMounted(async () => {
   try {

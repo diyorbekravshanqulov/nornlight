@@ -3,10 +3,22 @@
     <div class="container">
       <div class="flex max-md:flex-col max-md:gap-5 w-full justify-between">
         <div class="flex flex-col md:w-1/4 gap-[35px]">
-          <img src="/MainLogo.svg" @click="goToHome" class="w-3/4 max-md:w-1/2 cursor-pointer" alt="logo" />
+          <img
+            src="/MainLogo.svg"
+            @click="goToHome"
+            class="w-3/4 max-md:w-1/2 cursor-pointer"
+            alt="logo"
+          />
           <p class="text-primary text-2xl font-semibold">8 (800) 890-46-56</p>
-          <img src="/card.png" class="w-3/4 max-md:w-1/2 cursor-pointer" alt="card" />
-          <p class="font-semibold underline opacity-50 cursor-pointer" @click="redirectToPrivacyPolicy">
+          <img
+            src="/card.png"
+            class="w-3/4 max-md:w-1/2 cursor-pointer"
+            alt="card"
+          />
+          <p
+            class="font-semibold underline opacity-50 cursor-pointer"
+            @click="redirectToPrivacyPolicy"
+          >
             Политика конфиденциальности
           </p>
           <div class="flex gap-3">
@@ -20,8 +32,14 @@
             </button>
           </div>
         </div>
-        <div v-for="(category, index) in datas" :key="index" class="text-primary">
-          <h4 :class="index === 2 ? 'text-transparent' : '' " class="mb-8">{{ category.title }}</h4>
+        <div
+          v-for="(category, index) in datas"
+          :key="index"
+          class="text-primary"
+        >
+          <h4 :class="index === 2 ? 'text-transparent' : ''" class="mb-8">
+            {{ category.title }}
+          </h4>
           <p
             v-for="(item, index2) in category.info"
             :key="index2"
@@ -37,9 +55,8 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-import { ref } from 'vue';
-
+import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 const router = useRouter();
 
@@ -79,7 +96,7 @@ const datas = ref([
 ]);
 
 function goToHome() {
-  router.push('/');
+  router.push("/");
 }
 
 function redirectToPrivacyPolicy() {
@@ -92,7 +109,17 @@ function navigateToSocialNetwork(network) {
 
 function handleNavigation(categoryIndex, infoIndex) {
   if (categoryIndex === 0 && infoIndex === 0) {
-    router.push('/company');
+    router.push("/company");
+  } else if (categoryIndex === 0 && infoIndex === 1) {
+    router.push("/delivery");
+  } else if (categoryIndex === 0 && infoIndex === 2) {
+    router.push("/return");
+  } else if (categoryIndex === 0 && infoIndex === 3) {
+    router.push("/guarantees");
+  } else if (categoryIndex === 0 && infoIndex === 4) {
+    router.push("/contact");
+  } else if (categoryIndex === 0 && infoIndex === 5) {
+    router.push("/blogs");
   }
   // Add more navigation conditions as needed
 }

@@ -39,11 +39,13 @@
               alt="Logo"
             />
             <img
+              @click="goToHome"
               src="/MainLogo.svg"
               class="cursor-pointer max-md:hidden"
               alt="Logo"
             />
             <img
+              @click="goToHome"
               :class="{
                 hidden: toggle,
                 block: !toggle,
@@ -54,7 +56,7 @@
             />
 
             <div
-              @click="dropdownClick = !dropdownClick"
+              @click="handleNavigation('catalog')"
               class="flex max-md:hidden px-[27px] gap-[9px] cursor-pointer items-center rounded-full bg-primary py-[14px]"
             >
               <img src="/catalog.svg" alt="category" />
@@ -138,7 +140,7 @@
   >
     <div class="container bg-white pb-8">
       <a
-        @click="handleNavigation(index)"
+        @click="(toggle = !toggle), handleNavigation(index)"
         href="#"
         v-for="(item, index) in sections"
         :key="index"
@@ -146,6 +148,7 @@
         >{{ item }}</a
       >
       <div
+        @click="(toggle = !toggle), handleNavigation('catalog')"
         class="flex justify-center w-full gap-[9px] cursor-pointer items-center rounded-full bg-primary mt-6 py-[14px]"
       >
         <img src="/catalog.svg" alt="category" />
@@ -153,7 +156,10 @@
       </div>
       <div class="flex flex-col gap-4 mt-8 justify-center w-full">
         <p class="text-center">8 (800) 890-46-56</p>
-        <p class="text-center" @click="modalClick = !modalClick">
+        <p
+          class="text-center"
+          @click="(modalClick = !modalClick), (toggle = !toggle)"
+        >
           Заказать звонок
         </p>
       </div>
@@ -198,9 +204,25 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 
+function goToHome() {
+  router.push("/");
+}
+
 function handleNavigation(Index) {
   if (Index === 0) {
     router.push("/company");
+  } else if (Index === 1) {
+    router.push("/delivery");
+  } else if (Index === 2) {
+    router.push("/return");
+  } else if (Index === 3) {
+    router.push("/guarantees");
+  } else if (Index === 4) {
+    router.push("/contact");
+  } else if (Index === 5) {
+    router.push("/blogs");
+  } else if (Index === "catalog") {
+    router.push("/catalog");
   }
   // Add more navigation conditions as needed
 }

@@ -14,10 +14,10 @@
             {{ crumb.name }}
           </router-link>
           <span v-else class="text-gray-700"
-            ><span class="cursor-pointer" @click="router.push('/')"
+            ><span class="cursor-pointer text-primary/50" @click="router.push('/')"
               >Главная страница</span
             >
-            / <span class="cursor-pointer">{{ crumb.name }}</span></span
+            > <span class="cursor-pointer text-primary">{{ crumb.name }}</span></span
           >
         </li>
       </ul>
