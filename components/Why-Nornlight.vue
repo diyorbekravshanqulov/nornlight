@@ -3,10 +3,10 @@
     <div class="flex justify-between mb-10 items-center">
       <h4 class="font-bold text-[28px] md:text-[40px]">Почему NORNLIGHT?</h4>
       <div
-        class="flex max-md:hidden items-center py-[8px] cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
+        class="flex max-md:hidden items-center py-[8px] group hover:bg-primary cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
-        <p class="ml-12 font-medium text-primary">О компании</p>
-        <p class="text-2xl font-medium mb-1 text-primary">&rarr;</p>
+        <p class="ml-12 font-medium text-primary group-hover:text-white">О компании</p>
+        <p class="text-2xl font-medium mb-1 text-primary group-hover:text-white">&rarr;</p>
       </div>
     </div>
     <div class="grid md:grid-cols-4 grid-cols-2 md:gap-5 gap-2">
@@ -49,7 +49,7 @@ const datas = ref([
   },
   {
     title: "Быстрая доствка",
-    price: "Доставляем по всей РФ за 1-10 дней",
+    price: "Доставляем по всей РФза 1-10 дней",
   },
   {
     title: "Большой ассортимент",

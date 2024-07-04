@@ -3,10 +3,10 @@
     <div class="flex max-md:hidden justify-between mb-10 items-center">
       <h4 class="font-bold text-[40px]">Блог</h4>
       <div
-        class="flex items-center py-[8px] cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
+        class="flex items-center py-[8px] cursor-pointer group hover:bg-primary gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
-        <p class="ml-12 font-medium text-primary">Весь каталог</p>
-        <p class="text-2xl font-medium mb-1 text-primary">&rarr;</p>
+        <p class="ml-12 font-medium text-primary group-hover:text-white">Весь каталог</p>
+        <p class="text-2xl font-medium mb-1 text-primary group-hover:text-white">&rarr;</p>
       </div>
     </div>
     <div class="grid md:grid-cols-3 gap-5 max-md:hidden">

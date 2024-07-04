@@ -4,7 +4,7 @@
       <h3
         class="leading-[70px] text-primary text-[64px] max-md:text-[28px] font-bold"
       >
-        Гарантии
+        Контакты
       </h3>
       <div class="mb-10">
         <h4 class="text-2xl font-semibold text-primary">8 (800) 890-46-56</h4>
@@ -16,7 +16,7 @@
   </div>
   <div class="flex justify-center w-full">
     <div
-      class="md:my-[100px] mt-5  max-md:mb-10 md:w-[1800px] max-md:h-[326px] h-[672px] md:mx-[10px]"
+      class="md:my-[100px] relative flex justify-center mt-5 max-md:mb-10 md:w-[1800px] max-md:h-[326px] h-[672px] md:mx-[10px]"
     >
       <iframe
         class="rounded-[15px]"
@@ -28,8 +28,42 @@
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
+      <div
+        v-for="(item, index) in infos"
+        :key="index"
+        class="bg-white container items-center flex flex-col md:grid-cols-4 left-0 absolute bottom-0 -translate-y-3/4 rounded-[15px] p-4 mb-2"
+      >
+        <div class="flex flex-col justify-center items-center mb-4">
+          <h3 class="text-2xl text-primary font-semibold">
+            {{ item.title }}
+          </h3>
+          <p class="mt-[10px] text-primary">{{ item.info }}</p>
+        </div>
+        <button
+          class="px-[43px] py-[14px] rounded-full bg-primary text-white font-semibold"
+        >
+          Оставить заявку
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+const infos = ref([
+  {
+    title: "Адрес магазина",
+    info: "г. Москва, Дмитровское шоссе д.100с2",
+  },
+  {
+    title: "Почта",
+    info: "NORNLIGHT@mail.ru",
+  },
+  {
+    title: "Телефон",
+    info: "8 (800) 890-46-56",
+  },
+]);
+</script>

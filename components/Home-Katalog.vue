@@ -3,23 +3,23 @@
     <div class="flex max-md:hidden justify-between mb-10 items-center">
       <h4 class="font-bold text-[40px]">Каталог</h4>
       <div
-        class="flex items-center py-[8px] cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
+        class="flex items-center py-[8px] hover:bg-primary group cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
-        <p class="ml-12 font-medium text-primary">Весь каталог</p>
-        <p class="text-2xl font-medium mb-1 text-primary">&rarr;</p>
+        <p class="ml-12 font-medium text-primary group-hover:text-white">Весь каталог</p>
+        <p class="text-2xl font-medium mb-1 text-primary group-hover:text-white">&rarr;</p>
       </div>
     </div>
     <div class="grid max-md:hidden grid-cols-3 gap-5">
       <div
-        class="bg-second rounded-[20px] pl-8 pr-2 w-full h-full flex items-center py-4 justify-between"
+        class="bg-second hover:bg-primary duration-300 cursor-pointer rounded-[20px] group pl-8 pr-2 w-full h-full flex items-center py-4 justify-between"
         v-for="(item, index) in candles"
         :key="index"
       >
         <div class="flex flex-col h-full justify-between">
-          <p class="text-primary font-medium text-[20px]">
+          <p class="text-primary group-hover:text-white font-medium text-[20px]">
             {{ datas[index].title }}
           </p>
-          <p class="text-primary font-medium text-sm group cursor-pointer">
+          <p class="text-primary group-hover:text-white font-medium text-sm group cursor-pointer">
             {{ datas[index].price }}
             <span class="group-hover:ml-2 ml-1 duration-300 font-medium text-xl"
               >&rarr;</span
@@ -46,14 +46,14 @@
       >
         <swiper-slide class="h-full w-full" v-for="(item, index) in candles" :key="index">
           <div
-            class="bg-second rounded-[20px] w-full h-[300px] flex-col flex items-center gap-4 py-4 justify-between"
+            class="bg-second hover:bg-primary duration-300 cursor-pointer group rounded-[20px] w-full h-[300px] flex-col flex items-center gap-4 py-4 justify-between"
           >
             <!-- <div class="flex flex-col h-full justify-between"> -->
-              <p class="text-primary font-medium text-[20px]">
+              <p class="text-primary group-hover:text-white font-medium text-[20px]">
                 {{ datas[index].title }}
               </p>
               <img class="w-[40%]" :src="item" alt="" />
-              <p class="text-primary font-medium text-sm group cursor-pointer">
+              <p class="text-primary group-hover:text-white font-medium text-sm group cursor-pointer">
                 {{ datas[index].price }}
                 <span 
                   class="group-hover:ml-2 ml-1 duration-300 font-medium text-xl"
@@ -65,10 +65,10 @@
         </swiper-slide>
       </swiper>
       <div
-        class="flex items-center py-[8px] mt-5 max-md:w-full cursor-pointer gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
+        class="flex items-center py-[8px] mt-5 max-md:w-full cursor-pointer hover:bg-primary group gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
-        <p class="ml-12 font-medium max-md:ml-24 text-primary">Весь каталог</p>
-        <p class="text-2xl font-medium mb-1 text-primary">&rarr;</p>
+        <p class="ml-12 font-medium max-md:ml-24 group-hover:text-white text-primary">Весь каталог</p>
+        <p class="text-2xl font-medium mb-1 group-hover:text-white text-primary">&rarr;</p>
       </div>
     </div>
   </div>

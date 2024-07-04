@@ -6,16 +6,16 @@
       </h4>
       <div class="flex gap-[10px] max-md:hidden items-center">
         <button
-          class="text-2xl h-[26px] w-[39px] flex items-center justify-center border border-primary rounded-full"
+          class="text-2xl h-[26px] duration-300 w-[39px] group hover:opacity-100 active:bg-primary flex items-center justify-center border border-primary rounded-full opacity-50"
           @click="decreaseSpeed"
         >
-          <span class="mb-1.5">&#8592;</span>
+          <span class="mb-1.5 group-hover:text-primary text-primary group-active:text-white">&#8592;</span>
         </button>
         <button
-          class="text-2xl h-[26px] w-[39px] flex items-center justify-center border border-primary rounded-full"
+          class="text-2xl h-[26px] w-[39px] duration-300 hover:opacity-100 group active:bg-primary flex items-center justify-center border border-primary rounded-full opacity-50"
           @click="increaseSpeed"
         >
-          <span class="mb-1.5">&rarr;</span>
+          <span class="mb-1.5 group-hover:text-primary text-primary group-active:text-white">&rarr;</span>
         </button>
       </div>
     </div>
