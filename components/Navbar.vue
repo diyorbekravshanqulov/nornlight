@@ -26,7 +26,7 @@
   >
     <div class="container">
       <div>
-        <div class="flex w-full items-center justify-between gap-4">
+        <div class="flex w-full justify-between items-center gap-4">
           <div class="flex md:gap-[29px] gap-4">
             <img
               @click="toggle = !toggle"
@@ -36,6 +36,10 @@
               alt="Logo"
             />
             <img
+              :class="{
+                hidden: toggle,
+                block: !toggle,
+              }"
               src="/MainLogo.svg"
               class="cursor-pointer max-md:w-[75%]"
               alt="Logo"
@@ -80,16 +84,28 @@
           </div>
 
           <div
-            class="flex h-full md:hidden items-center"
-            v-for="(item, index) in image2"
-            :key="index"
+            :class="{
+              'gap-6': toggle,
+              'gap-2': !toggle,
+            }"
+            class="flex items-center"
           >
-            <img
-              :src="item"
-              class="cursor-pointer"
-              :class="index == 0 ? '' : 'w-3/4 mb-0.5'"
-              alt="Logos "
-            />
+            <div
+              class="flex h-full md:hidden items-center"
+              v-for="(item, index) in image"
+              :key="index"
+            >
+              <img
+                :src="item"
+                class="cursor-pointer"
+                :class="{
+                  'w-3/4 mb-0.5': index == 2,
+                  block: index === 1 && toggle,
+                  hidden: index === 1 && !toggle,
+                }"
+                alt="Logos "
+              />
+            </div>
           </div>
         </div>
         <div class="relative md:hidden w-[100%] mt-2">
@@ -109,7 +125,7 @@
   </div>
 
   <div
-    class="md:hidden z-50  top-[100px] left-0 fixed w-full transition-all duration-300"
+    class="md:hidden z-50 top-[95px] left-0 fixed w-full transition-all duration-300"
     :class="{ 'scale-0 h-0': !toggle, 'scale-100 h-full': toggle }"
   >
     <div class="container bg-white pb-8">
@@ -117,11 +133,11 @@
         href="#"
         v-for="(item, index) in sections"
         :key="index"
-        class="block pt-8 text-center mx-auto border-b w-full text-primary text-sm border-b-primary/50  transition-all duration-300"
+        class="block pt-8 text-center mx-auto border-b w-full text-primary text-sm border-b-primary/50 transition-all duration-300"
         >{{ item }}</a
       >
       <div
-        class="flex justify-center  w-full gap-[9px] cursor-pointer items-center rounded-full bg-primary mt-6 py-[14px]"
+        class="flex justify-center w-full gap-[9px] cursor-pointer items-center rounded-full bg-primary mt-6 py-[14px]"
       >
         <img src="/catalog.svg" alt="category" />
         <p class="text-white font-semibold">Каталог</p>
@@ -156,7 +172,6 @@ const sections = ref([
 
 const bottomSections = ref(["Избранное", "Сравнение", "Корзина"]);
 const image = ref(["/like5.svg", "/compare.svg", "/cart.svg"]);
-const image2 = ref(["/like5.svg", "/cart.svg"]);
 
 const isScrolled = ref(false);
 
