@@ -139,6 +139,7 @@ const sections = ref([
   "Блог",
 ]);
 
+
 const bottomSections = ref(["Избранное", "Сравнение", "Корзина"]);
 const image = ref(["/like5.svg", "/compare.svg", "/cart.svg"]);
 const image2 = ref(["/like5.svg", "/cart.svg"]);
