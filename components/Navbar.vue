@@ -5,6 +5,7 @@
     >
       <div class="flex gap-7">
         <a
+          @click="handleNavigation(index)"
           href="#"
           v-for="(item, index) in sections"
           :key="index"
@@ -14,7 +15,9 @@
       </div>
       <div class="flex gap-6">
         <p class="opacity-100">8 (800) 890-46-56</p>
-        <a href="#" class="opacity-50" @click="modalClick = !modalClick">Заказать звонок</a>
+        <a href="#" class="opacity-50" @click="modalClick = !modalClick"
+          >Заказать звонок</a
+        >
       </div>
     </div>
   </div>
@@ -135,6 +138,7 @@
   >
     <div class="container bg-white pb-8">
       <a
+        @click="handleNavigation(index)"
         href="#"
         v-for="(item, index) in sections"
         :key="index"
@@ -149,7 +153,9 @@
       </div>
       <div class="flex flex-col gap-4 mt-8 justify-center w-full">
         <p class="text-center">8 (800) 890-46-56</p>
-        <p class="text-center" @click="modalClick = !modalClick">Заказать звонок</p>
+        <p class="text-center" @click="modalClick = !modalClick">
+          Заказать звонок
+        </p>
       </div>
     </div>
     <div
@@ -164,6 +170,7 @@
 import { ref } from "vue";
 const toggle = ref(false);
 
+const router = useRouter();
 
 const sections = ref([
   "О компании",
@@ -190,4 +197,11 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
+
+function handleNavigation(Index) {
+  if (Index === 0) {
+    router.push("/company");
+  }
+  // Add more navigation conditions as needed
+}
 </script>

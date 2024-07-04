@@ -1,7 +1,7 @@
 <template>
   <div>
     <Path />
-    <Popular_prod2 />
+    <popularProducts/>
   </div>
 </template>
 
