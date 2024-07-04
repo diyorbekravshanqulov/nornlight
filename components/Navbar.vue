@@ -20,7 +20,9 @@
   </div>
   <div
     class="sticky top-0 left-0 w-full py-3 z-30"
-    :class="isScrolled && !toggle ? 'backdrop-blur-lg bg-gradient-to-r' : 'bg-white'"
+    :class="
+      isScrolled && !toggle ? 'backdrop-blur-lg bg-gradient-to-r' : 'bg-white'
+    "
   >
     <div class="container">
       <div>
@@ -29,15 +31,16 @@
             <img
               @click="toggle = !toggle"
               :src="!toggle ? '/res_open.svg' : 'res_close.svg'"
-              class="hidden max-md:block cursor-pointer w-[50px]"
+              :class="toggle ? 'w-[20px]' : ''"
+              class="hidden max-md:block duration-300 cursor-pointer w-[25px]"
               alt="Logo"
             />
             <img
               src="/MainLogo.svg"
-              class="cursor-pointer max-md:w-[80%]"
+              class="cursor-pointer max-md:w-[75%]"
               alt="Logo"
             />
-            
+
             <div
               @click="dropdownClick = !dropdownClick"
               class="flex max-md:hidden px-[27px] gap-[9px] cursor-pointer items-center rounded-full bg-primary py-[14px]"
@@ -84,7 +87,7 @@
             <img
               :src="item"
               class="cursor-pointer"
-              :class="index + 1 != image.length ? 'w-full' : 'w-[70%]'"
+              :class="index == 0 ? '' : 'w-3/4 mb-0.5'"
               alt="Logos "
             />
           </div>
@@ -106,19 +109,19 @@
   </div>
   <div
     @click="toggle = !toggle"
-    :class="{ hidden: !toggle, block: toggle }"
-    class="fixed z-40 h-screen w-screen bg-primary/50"
+    :class="{ 'scale-0 h-0': !toggle, 'scale-100 h-screen': toggle }"
+    class="fixed z-20  top-0 left-0 duration-300 w-screen bg-primary/50"
   ></div>
   <div
-    class="bg-white md:hidden z-50 top-[100px] left-0 fixed w-full"
-    :class="{ hidden: !toggle, block: toggle }"
+    class="md:hidden z-50 top-[100px] left-0 fixed w-full transition-all duration-300"
+    :class="{ 'scale-0 h-0': !toggle, 'scale-100 h-full': toggle }"
   >
     <div>
       <a
         href="#"
         v-for="(item, index) in sections"
         :key="index"
-        class="block pt-8 text-center mx-auto border-[0.5px] w-full text-primary text-sm border-b-primary/50 bg-white"
+        class="block pt-8 text-center mx-auto border-[0.5px] w-full text-primary text-sm border-b-primary/50 bg-white transition-all duration-300"
         >{{ item }}</a
       >
     </div>
@@ -138,7 +141,6 @@ const sections = ref([
   "Контакты",
   "Блог",
 ]);
-
 
 const bottomSections = ref(["Избранное", "Сравнение", "Корзина"]);
 const image = ref(["/like5.svg", "/compare.svg", "/cart.svg"]);
