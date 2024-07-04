@@ -37,6 +37,7 @@
               class="cursor-pointer max-md:w-[80%]"
               alt="Logo"
             />
+            
             <div
               @click="dropdownClick = !dropdownClick"
               class="flex max-md:hidden px-[27px] gap-[9px] cursor-pointer items-center rounded-full bg-primary py-[14px]"
