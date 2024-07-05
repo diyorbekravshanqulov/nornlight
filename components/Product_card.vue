@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col">
+    <div class="w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col" @click="router.push(`/popular-products/${data.data.id}`)">
       <div class="relative">
         <img :src="data.data.image" alt="Product Image" />
         <img
@@ -50,6 +50,8 @@ const store = usePiniaStore();
 const data = defineProps({
   data: Object,
 });
+
+const router = useRouter();
 
 console.log("data" , data.data);
 
