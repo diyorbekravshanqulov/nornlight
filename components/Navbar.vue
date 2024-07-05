@@ -15,7 +15,7 @@
       </div>
       <div class="flex gap-6">
         <p class="opacity-100">8 (800) 890-46-56</p>
-        <a href="#" class="opacity-50" @click="modalClick = !modalClick"
+        <a href="#" class="opacity-50" @click="store.modalClick = !store.modalClick"
           >Заказать звонок</a
         >
       </div>
@@ -178,7 +178,7 @@
         <p class="text-center">8 (800) 890-46-56</p>
         <p
           class="text-center"
-          @click="(modalClick = !modalClick), (toggle = !toggle)"
+          @click="(store.modalClick = !store.modalClick), (toggle = !toggle)"
         >
           Заказать звонок
         </p>

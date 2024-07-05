@@ -1,11 +1,17 @@
 <template>
-  <div @click="modalClick = !modalClick" v-show="modalClick">
-    <div class="fixed z-40 h-screen w-screen bg-primary/50"></div>
+  <div
+    class="fixed z-40 h-screen w-screen bg-primary/50"
+    @click="store.modalClick = !store.modalClick"
+    v-show="store.modalClick"
+  >
     <form
       action=""
-      class="p-[40px] rounded-[50px] bg-white absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      class="md:p-[40px] p-6 max-md:w-[92%] md:rounded-[50px] rounded-[20px] bg-white absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "
     >
-      <p @click.stop="modalClick = !modalClick"  class="flex justify-end items-center cursor-pointer">
+      <p
+        @click.stop="store.modalClick = !store.modalClick"
+        class="flex justify-end items-center cursor-pointer"
+      >
         <svg
           width="18"
           height="18"
@@ -22,7 +28,7 @@
         </svg>
       </p>
       <h3
-        class="text-primary font-bold text-[64px] w-[650px] pt-2 mb-[50px] leading-[70px]"
+        class="text-primary text-[28px] mb-5 font-bold md:text-[64px] md:w-[650px] pt-2 md:mb-[50px] md:leading-[70px]"
       >
         Заполните, <span class="block">и мы перезвоним</span>
       </h3>
@@ -31,14 +37,14 @@
         :key="index"
         type="text"
         name=""
-        class="px-5 py-4 border mb-4 font-semibold border-primary rounded-full w-full"
+        class="px-5 py-4 border md:mb-4 mb-3 font-semibold border-primary rounded-full w-full"
         :placeholder="index == 0 ? 'ФИО' : 'телефон'"
         id=""
       />
       <input
         type="submit"
         name=""
-        class="px-5 py-4 font-medium bg-primary text-center text-white mt-[30px] mb-12 border border-primary rounded-full w-full"
+        class="px-5 py-4 font-medium mt-1 mb-2 bg-primary text-center text-white md:mt-[30px] md:mb-12 border border-primary rounded-full w-full"
         value="Отправить"
         id=""
       />
@@ -47,6 +53,6 @@
 </template>
 
 <script setup>
-const modalClick = ref(false);
-
+import { usePiniaStore } from "../store";
+const store = usePiniaStore();
 </script>

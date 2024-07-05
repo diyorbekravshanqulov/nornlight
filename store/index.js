@@ -3,6 +3,7 @@ export const usePiniaStore = defineStore("pinia", {
     return {
       likedProducts: [],
       basket: [],
+      modalClick: false,
     };
   },
   actions: {
