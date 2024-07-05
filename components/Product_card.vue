@@ -4,7 +4,7 @@
       <div class="relative">
         <img :src="data.data.image" alt="Product Image" />
         <img
-          class="z-10 max-md:hidden absolute top-0 right-0 translate-y-3/4 -translate-x-3/4 cursor-pointer"
+          class="z-10  absolute top-0 right-0 translate-y-3/4 -translate-x-3/4 cursor-pointer"
           @click="toggleLike(data.data.id)"
           :src="like ? '/like2.svg' : '/like.svg'"
           alt="Like Button"

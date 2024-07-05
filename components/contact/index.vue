@@ -6,7 +6,7 @@
       >
         Контакты
       </h3>
-      <div class="mb-10">
+      <div class="md:mb-10">
         <h4 class="text-2xl font-semibold text-primary">8 (800) 890-46-56</h4>
         <p class="text-primary">Пн-Пт: 10:00 до 19:00</p>
         <p class="text-primary">Сб-Вс: заказ через корзину</p>
@@ -14,9 +14,9 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center w-full">
+  <div class="flex max-md:mb-[350px] justify-center w-full">
     <div
-      class="md:my-[100px] relative flex justify-center mt-5 max-md:mb-10 md:w-[1800px] max-md:h-[326px] h-[672px] md:mx-[10px]"
+      class="md:my-[100px] relative mt-5 max-md:mb-10 md:w-[1800px] max-md:h-[326px] h-[672px] md:mx-[10px]"
     >
       <iframe
         class="rounded-[15px]"
@@ -29,18 +29,22 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
       <div
-        v-for="(item, index) in infos"
-        :key="index"
-        class="bg-white container items-center flex flex-col md:grid-cols-4 left-0 absolute bottom-0 -translate-y-3/4 rounded-[15px] p-4 mb-2"
+        class="bg-white rounded-[15px] container md:absolute  bottom-14 md:right-52 grid md:grid-cols-9 md:py-14 p-5 max-md:gap-5 md:px-14"
       >
-        <div class="flex flex-col justify-center items-center mb-4">
-          <h3 class="text-2xl text-primary font-semibold">
-            {{ item.title }}
-          </h3>
-          <p class="mt-[10px] text-primary">{{ item.info }}</p>
+        <div
+          v-for="(item, index) in infos"
+          :key="index"
+          :class="index == 0 ? 'col-span-3' : 'col-span-2'"
+        >
+          <div class="">
+            <h3 class="text-2xl text-primary font-semibold">
+              {{ item.title }}
+            </h3>
+            <p class="mt-[10px] text-primary">{{ item.info }}</p>
+          </div>
         </div>
         <button
-          class="px-[43px] py-[14px] rounded-full bg-primary text-white font-semibold"
+          class="px-[43px] max-md:w-full  col-span-3 md:col-span-2 py-[14px] rounded-full bg-primary text-white font-semibold"
         >
           Оставить заявку
         </button>
@@ -50,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const infos = ref([
   {
@@ -67,4 +71,3 @@ const infos = ref([
   },
 ]);
 </script>
- 
