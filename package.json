@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.7.2",
@@ -19,6 +20,8 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.67",
+    "@iconify/vue": "^4.1.2",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1"
   }
 }

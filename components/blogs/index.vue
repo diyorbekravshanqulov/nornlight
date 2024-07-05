@@ -5,7 +5,10 @@
       <h4 class="font-bold text-[40px]">Блог</h4>
     </div>
     <!-- Grid for product cards on smaller screens -->
-    <div class="grid md:grid-cols-3 gap-5 max-md:hidden">
+    <div v-if="isLoading" class="text-3xl text-gray-500 text-center py-10">
+      <Loading />
+    </div>
+    <div v-else class="grid md:grid-cols-3 gap-5 max-md:hidden">
       <div
         class="w-full h-full flex flex-col-reverse gap-[29px] justify-between border-b border-primary/10 pb-8"
         v-for="(item, index) in products"
@@ -95,6 +98,7 @@ import { ref, onMounted } from "vue";
 import axios from "axios";
 
 const products = ref([]);
+const isLoading = ref(true); // Initially set loading state to true
 
 onMounted(async () => {
   try {
@@ -106,8 +110,10 @@ onMounted(async () => {
       liked: false,
       shopped: false,
     }));
+    isLoading.value = false; // Set loading to false after data is fetched
   } catch (error) {
     console.error("Error fetching products:", error);
+    isLoading.value = false; // Ensure loading is set to false even if there's an error
   }
 });
 </script>

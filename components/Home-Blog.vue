@@ -3,13 +3,23 @@
     <div class="flex max-md:hidden justify-between mb-10 items-center">
       <h4 class="font-bold text-[40px]">Блог</h4>
       <div
+        @click="router.push('/blogs')"
         class="flex items-center py-[8px] cursor-pointer group hover:bg-primary gap-[10px] hover:gap-4 duration-300 w-[220px] rounded-full border border-primary"
       >
-        <p class="ml-12 font-medium text-primary group-hover:text-white">Весь каталог</p>
-        <p class="text-2xl font-medium mb-1 text-primary group-hover:text-white">&rarr;</p>
+        <p class="ml-12 font-medium text-primary group-hover:text-white">
+          Весь каталог
+        </p>
+        <p
+          class="text-2xl font-medium mb-1 text-primary group-hover:text-white"
+        >
+          &rarr;
+        </p>
       </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-5 max-md:hidden">
+    <div v-if="isLoading" class="text-3xl text-gray-500 text-center py-10">
+      <Loading />
+    </div>
+    <div v-else class="grid md:grid-cols-3 gap-5 max-md:hidden">
       <div
         class="w-full h-full flex flex-col-reverse gap-[29px] justify-between border-b border-primary/10 pb-8"
         v-for="(item, index) in limitedProducts"
@@ -44,7 +54,7 @@
         <img class="w-full rounded-md" :src="item.image" alt="" />
       </div>
     </div>
-    <!--  -->
+    <!-- Swiper section for larger screens -->
     <div class="md:hidden">
       <h4 class="font-bold text-[40px] mb-5">Блог</h4>
 
@@ -118,12 +128,14 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules"; // Import Swi
 
 const modules = [Autoplay, Pagination, Navigation];
 
+const router = useRouter();
+
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
 const products = ref([]);
+const isLoading = ref(true); // Initially set loading state to true
 
-// const candles = ref(["/house1.png", "/house2.png", "/house3.png"]);
 const limitedProducts = computed(() => {
   return products.value.slice(0, 3);
 });
@@ -138,11 +150,14 @@ onMounted(async () => {
       liked: false,
       shopped: false,
     }));
+    isLoading.value = false; // Set loading to false after data is fetched
   } catch (error) {
     console.error("Error fetching products:", error);
+    isLoading.value = false; // Ensure loading is set to false even if there's an error
   }
 });
 </script>
+
 <style scoped>
 /* Swiper styles */
 .swiper {

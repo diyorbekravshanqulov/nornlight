@@ -28,7 +28,7 @@
               class="h-9 w-9 rounded-full border-2 border-primary text-primary font-semibold"
               @click="navigateToSocialNetwork(item)"
             >
-              {{ item }}
+              VK
             </button>
           </div>
         </div>

@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
+    "@nuxt/icon"
   ],
   app: {
     head: {
