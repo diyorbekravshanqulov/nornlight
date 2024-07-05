@@ -1,5 +1,5 @@
 <template>
-  <div class="container md:mt-[102px]">
+  <div class="container md:mt-10">
     <!-- Section title and "All Catalog" button -->
     <div class="flex justify-between py-10 md:mb-10 items-center">
       <h4 class="font-bold max-md:text-[28px] text-[40px]">Каталог</h4>

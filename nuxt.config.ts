@@ -1,7 +1,12 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-swiper"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "nuxt-swiper",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+  ],
   app: {
     head: {
       title: "Nornlight",
