@@ -1,10 +1,13 @@
 <template>
   <div>
-    <div class="w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col" @click="router.push(`/popular-products/${data.data.id}`)">
+    <div
+      class="w-full h-full duration-300 hover:shadow-lg flex gap-4 flex-col"
+      @click="router.push(`/popular-products/${data.data.id}`)"
+    >
       <div class="relative">
         <img :src="data.data.image" alt="Product Image" />
         <img
-          class="z-10  absolute top-0 right-0 translate-y-3/4 -translate-x-3/4 cursor-pointer"
+          class="z-10 absolute top-0 right-0 translate-y-3/4 -translate-x-3/4 cursor-pointer"
           @click="toggleLike(data.data.id)"
           :src="like ? '/like2.svg' : '/like.svg'"
           alt="Like Button"
@@ -30,11 +33,7 @@
               @click="toggleShopped(data.data.id)"
               class="py-2 max-md:py-1 p-5 max-md:px-3 cursor-pointer rounded-full w-[23%] max-md:w-[35%]"
               :src="shop ? '/cart3.svg' : '/cart2.svg'"
-              :class="
-                shop
-                  ? 'bg-white border border-primary'
-                  : 'bg-primary'
-              "
+              :class="shop ? 'bg-white border border-primary' : 'bg-primary'"
               alt="Cart Button"
             />
           </div>
@@ -53,7 +52,7 @@ const data = defineProps({
 
 const router = useRouter();
 
-console.log("data" , data.data);
+console.log("data", data.data);
 
 const like = computed(() => {
   const index = store.likedProducts.findIndex((p) => p.id == data.data.id);
