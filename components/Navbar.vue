@@ -80,7 +80,17 @@
             v-for="(item, index) in image"
             :key="index"
           >
-            <div class="flex flex-col items-center gap-[6px]">
+            <div class="flex relative flex-col items-center gap-[6px]">
+              <span
+                :class="{
+                  hidden: index === 1,
+                  '-translate-x-1/4': index === 0,
+                }"
+                class="absolute -translate-y-1/2 max-md:hidden top-0 w-5 h-5 flex justify-center items-center rounded-full right-0 bg-red-500 z-50 text-white text-sm"
+                >{{
+                  index == 0 ? store.likedProducts.length : store.basket.length
+                }}</span
+              >
               <img
                 :src="item"
                 class="cursor-pointer"
@@ -101,10 +111,20 @@
             class="flex items-center"
           >
             <div
-              class="flex h-full md:hidden items-center"
+              class="flex relative h-full md:hidden items-center"
               v-for="(item, index) in image"
               :key="index"
             >
+              <span
+                :class="{
+                  hidden: index === 1,
+                  '-translate-y-[65%] right-0 translate-x-1': index === 0,
+                }"
+                class="absolute md:hidden -translate-y-1/2 top-0 w-4 h-4 flex justify-center items-center rounded-full right-0 bg-red-500 z-50 text-white text-[10px]"
+                >{{
+                  index == 0 ? store.likedProducts.length : store.basket.length
+                }}</span
+              >
               <img
                 :src="item"
                 class="cursor-pointer"
@@ -173,6 +193,9 @@
 </template>
 
 <script setup>
+import { usePiniaStore } from "../store";
+const store = usePiniaStore();
+
 import { ref } from "vue";
 const toggle = ref(false);
 
