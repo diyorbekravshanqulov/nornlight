@@ -4,6 +4,7 @@ export const usePiniaStore = defineStore("pinia", {
       likedProducts: [],
       basket: [],
       modalClick: false,
+      totalPrice: 0,
     };
   },
   actions: {
@@ -28,6 +29,12 @@ export const usePiniaStore = defineStore("pinia", {
       }
 
       console.log(this.basket);
+    },
+    removeFromBasket(productId) {
+      const index = this.basket.findIndex((item) => item.id === productId);
+      if (index !== -1) {
+        this.basket.splice(index, 1);
+      }
     },
   },
   persist: true,

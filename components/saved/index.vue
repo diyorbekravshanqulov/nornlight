@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-20 max-md:my-10">
+  <div class="container my-10">
     <div class="flex justify-between mb-10 items-center">
       <h4 class="font-bold text-[40px] max-md:text-[28px]">Избранные товары</h4>
     </div>
