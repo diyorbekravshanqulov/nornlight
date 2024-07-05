@@ -3,13 +3,14 @@
     <div class="flex justify-between mb-10 items-center">
       <h4 class="font-bold text-[40px] max-md:text-[28px]">Избранные товары</h4>
     </div>
-    <div class="grid md:grid-cols-4 grid-cols-2 gap-2 md:gap-5">
+    <div v-show="products" class="grid md:grid-cols-4 grid-cols-2 gap-2 md:gap-5">
       <ProductCard
         v-for="(item, index) in products"
         :key="index"
         :data="item"
       />
     </div>
+    <div class="text-9xl text-primary/50 py-40 font-bold"><p class="text-center">No Products</p></div>
   </div>
 </template>
 

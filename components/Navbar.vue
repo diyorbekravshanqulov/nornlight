@@ -15,7 +15,10 @@
       </div>
       <div class="flex gap-6">
         <p class="opacity-100">8 (800) 890-46-56</p>
-        <a href="#" class="opacity-50" @click="store.modalClick = !store.modalClick"
+        <a
+          href="#"
+          class="opacity-50"
+          @click="store.modalClick = !store.modalClick"
           >Заказать звонок</a
         >
       </div>
@@ -92,6 +95,13 @@
                 }}</span
               >
               <img
+                @click="
+                  index === 0
+                    ? handleNavigation('saved')
+                    : index === 2
+                    ? handleNavigation('cart')
+                    : null
+                "
                 :src="item"
                 class="cursor-pointer"
                 :class="index + 1 != image.length ? 'w-1/3' : 'w-1/2'"
@@ -126,6 +136,7 @@
                 }}</span
               >
               <img
+                @click="handleNavigation('saved')"
                 :src="item"
                 class="cursor-pointer"
                 :class="{
@@ -246,6 +257,10 @@ function handleNavigation(Index) {
     router.push("/blogs");
   } else if (Index === "catalog") {
     router.push("/catalog");
+  } else if (Index === "saved") {
+    router.push("/saved");
+  } else if (Index === "cart") {
+    router.push("/cart");
   }
   // Add more navigation conditions as needed
 }

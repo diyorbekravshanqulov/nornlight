@@ -4,7 +4,7 @@
     <Catalog />
     <HomeCarusel />
     <HomeBlog />
-    <HomeText class="md:hidden max-md:block" />
+    <HomeText />
   </div>
 </template>
 

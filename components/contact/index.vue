@@ -29,7 +29,7 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
       <div
-        class="bg-white rounded-[15px] container md:absolute  bottom-14 md:right-52 grid md:grid-cols-9 md:py-14 p-5 max-md:gap-5 md:px-14"
+        class="bg-white rounded-[15px] container md:absolute bottom-14 md:left-1/2 md:-translate-x-1/2 grid md:grid-cols-9 md:py-14 p-5 max-md:gap-5 md:px-14"
       >
         <div
           v-for="(item, index) in infos"
