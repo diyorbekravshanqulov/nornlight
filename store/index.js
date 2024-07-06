@@ -1,3 +1,5 @@
+import { defineStore } from "pinia";
+
 export const usePiniaStore = defineStore("pinia", {
   state() {
     return {
@@ -35,6 +37,15 @@ export const usePiniaStore = defineStore("pinia", {
       if (index !== -1) {
         this.basket.splice(index, 1);
       }
+    },
+    toggleModal() {
+      this.modalClick = !this.modalClick;
+    },
+    closeModal() {
+      this.modalClick = false;
+    },
+    openModal() {
+      this.modalClick = true;
     },
   },
   persist: true,

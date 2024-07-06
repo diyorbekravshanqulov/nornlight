@@ -1,15 +1,16 @@
 <template>
   <div
     class="fixed z-40 h-screen w-screen bg-primary/50"
-    @click="store.modalClick = !store.modalClick"
+    @click="store.closeModal"
     v-show="store.modalClick"
   >
     <form
-      action=""
-      class="md:p-[40px] p-6 max-md:w-[92%] md:rounded-[50px] rounded-[20px] bg-white absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "
+      @click.stop
+      @submit.prevent="handleSubmit"
+      class="md:p-[40px] p-6 max-md:w-[92%] md:rounded-[50px] rounded-[20px] bg-white absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
     >
       <p
-        @click.stop="store.modalClick = !store.modalClick"
+        @click.stop="store.closeModal"
         class="flex justify-end items-center cursor-pointer"
       >
         <svg
@@ -39,14 +40,12 @@
         name=""
         class="px-5 py-4 border md:mb-4 mb-3 font-semibold border-primary rounded-full w-full"
         :placeholder="index == 0 ? 'ФИО' : 'телефон'"
-        id=""
       />
       <input
         type="submit"
         name=""
         class="px-5 py-4 font-medium mt-1 mb-2 bg-primary text-center text-white md:mt-[30px] md:mb-12 border border-primary rounded-full w-full"
         value="Отправить"
-        id=""
       />
     </form>
   </div>
@@ -55,4 +54,15 @@
 <script setup>
 import { usePiniaStore } from "../store";
 const store = usePiniaStore();
+
+const handleSubmit = async () => {
+  store.closeModal();
+  await alert("Sent!");
+};
 </script>
+
+<style scoped>
+input {
+  outline: none;
+}
+</style>

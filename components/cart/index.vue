@@ -128,11 +128,11 @@
             />
           </label>
           <p class="text-primary/50 font-semibold">
-            {{ products.length * 240 }} ₽
+            {{ 15/100 * Number(calculateTotalCost())}} ₽ 
           </p>
         </div>
         <h3 class="text-primary font-bold col-span-3 text-2xl mt-10">
-          {{ calculateTotalCost() + products.length * 240 }} ₽
+          {{ Number(calculateTotalCost()) + Number(15/100 * Number(calculateTotalCost())) }} ₽
         </h3>
         <button
         @click="btn()"

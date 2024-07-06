@@ -52,7 +52,6 @@ const data = defineProps({
 
 const router = useRouter();
 
-console.log("data", data.data);
 
 const like = computed(() => {
   const index = store.likedProducts.findIndex((p) => p.id == data.data.id);
