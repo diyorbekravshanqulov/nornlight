@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="text-9xl text-primary/50 py-40 font-bold">
+    <div v-else class="text-9xl max-md:text-2xl text-primary/50 md:py-40 font-bold">
       <p class="text-center">No Products</p>
     </div>
     <div v-if="products.length > 0" class="p-11 rounded-[20px] bg-second mt-5">

@@ -107,7 +107,7 @@
             <Icon
               @click="toggleLiked"
               :icon="!liked ? 'ph:heart' : 'fluent-emoji-flat:heart-suit'"
-              class="text-[54px] rounded-[10px] text-primary bg-[#F8F8F8] p-[10px]"
+              class="text-[54px] rounded-[10px] cursor-pointer text-primary bg-[#F8F8F8] p-[10px]"
             />
           </div>
         </div>
@@ -222,7 +222,7 @@ const toggleLiked = () => {
 const handleCart = () => {
   if (products.value) {
     if (shop.value) {
-      alert("Этот продукт нельзя удалить из корзины.");
+      alert("This product already exits in basket");
     } else {
       store.addToBasket(products.value);
     }
