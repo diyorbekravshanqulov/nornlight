@@ -82,8 +82,8 @@ const eyecheck = ref(false);
 const router = useRouter();
 
 const userData = reactive({
-  username: "",
-  password: "",
+  username: "emilys",
+  password: "emilyspass",
 });
 
 const loginUser = () => {

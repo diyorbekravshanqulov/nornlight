@@ -1,5 +1,8 @@
+import { navigateTo } from "nuxt/app";
+
 export default defineNuxtRouteMiddleware((to, from) => {
-  const user = localStorage.getItem("user");
+  localStorage.setItem("user", "");
+  let user = localStorage.getItem("user");
   if (!user) {
     return navigateTo("/auth/login");
   }
