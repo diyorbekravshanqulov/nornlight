@@ -128,14 +128,18 @@
             />
           </label>
           <p class="text-primary/50 font-semibold">
-            {{ 15/100 * Number(calculateTotalCost())}} ₽ 
+            {{ (15 / 100) * Number(calculateTotalCost()) }} ₽
           </p>
         </div>
         <h3 class="text-primary font-bold col-span-3 text-2xl mt-10">
-          {{ Number(calculateTotalCost()) + Number(15/100 * Number(calculateTotalCost())) }} ₽
+          {{
+            Number(calculateTotalCost()) +
+            Number((15 / 100) * Number(calculateTotalCost()))
+          }}
+          ₽
         </h3>
         <button
-        @click="btn()"
+          @click="btn()"
           class="col-span-1 w-full py-[14px] bg-primary text-white font-medium rounded-full"
         >
           Купить
@@ -165,19 +169,29 @@ const headers = ["Фото", "Товары", "Описание", "Артикул
 
 const order = ref(["ФИО", "телефон", "Электронная почта"]);
 
-onMounted(() => {
-  // Simulating API fetch delay (remove this in actual implementation)
-  setTimeout(() => {
+const fetchProducts = async () => {
+  try {
+    isLoading.value = true; // Set loading state to true before fetching data
+    // Simulating API fetch delay (replace with actual API call)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     products.value = store.basket.map((product) => ({
       ...product,
       count: getCount(product.id), // Initialize count for each product
     }));
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+  } finally {
     isLoading.value = false; // Set loading to false after data is fetched
-  }, 1000); // Adjust timeout value as per your needs
-});
+  }
+};
 
+onMounted(() => {
+  fetchProducts();
+});
 function btn() {
-  alert('successfully failed!')
+  store.pushOrders();
+  window.location.reload();
 }
 
 const removeProduct = (productId) => {

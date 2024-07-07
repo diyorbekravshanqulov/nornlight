@@ -7,6 +7,7 @@ export const usePiniaStore = defineStore("pinia", {
       basket: [],
       modalClick: false,
       totalPrice: 0,
+      orders: [],
     };
   },
   actions: {
@@ -38,6 +39,15 @@ export const usePiniaStore = defineStore("pinia", {
         this.basket.splice(index, 1);
       }
     },
+    pushOrders() {
+      this.orders.push(this.basket);
+      this.basket = [];
+    },
+
+    clearOrders() {
+      this.orders = [];
+    },
+
     toggleModal() {
       this.modalClick = !this.modalClick;
     },

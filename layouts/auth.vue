@@ -1,7 +1,6 @@
 <template>
   <div>
-    <AdminSidebar />
-    <slot />
+    <slot />  
   </div>
 </template>
 
