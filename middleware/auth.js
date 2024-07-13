@@ -1,9 +1,12 @@
-import { navigateTo } from "nuxt/app";
-
 export default defineNuxtRouteMiddleware((to, from) => {
-  localStorage.setItem("user", "");
-  let user = localStorage.getItem("user");
-  if (!user) {
-    return navigateTo("/auth/login");
-  }
-});
+  // skip middleware on server (first middleware execution)
+  if (import.meta.server) return
+
+  // now we are on the client side (second middleware execution)
+  // we have access to localStorage
+  if (import.meta.client)
+    if(localStorage.getItem('user'))
+      return
+    else
+      return navigateTo('/auth/login')
+})
